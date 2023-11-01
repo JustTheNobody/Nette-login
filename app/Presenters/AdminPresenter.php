@@ -81,6 +81,14 @@ class AdminPresenter extends FrontendPresenter
             ->addRule( Form::MIN_LENGTH, 'min_password', 6 )
             ->setValue($this->temp->password);
 
+        $form->addText( 'name', 'name' )
+            ->setValue($this->temp->name)
+            ->setRequired( 'username_required' );
+
+        $form->addText( 'surname', 'surname' )
+            ->setValue($this->temp->surname)
+            ->setRequired( 'username_required' );
+
         $form->addCheckbox( 'remember', 'remember' )
             ->setDefaultValue( true );
 

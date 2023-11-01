@@ -11,6 +11,7 @@
 			<tr>
 				<th>id</th>
 				<th>email</th>
+				<th>name</th>
 				<th>action</th>
 			</tr>
 		</thead>
@@ -19,6 +20,7 @@
 				<tr>
 					<td>{$userItem->id}</td>
 					<td>{$userItem->email}</td>
+					<td>{$userItem->name} {$userItem->surname}</td>
 					<td>
 						<a n:href="Admin:edit, id => $userItem->id"><span uk-icon="pencil"></span></a>
 						<a n:href="delete!, id => $userItem->id"><span uk-icon="trash" class="delete uk-text-danger uk-margin-small-left"></span></a>
