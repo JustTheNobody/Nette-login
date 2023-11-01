@@ -3,6 +3,12 @@
         <li class="uk-inline-block uk-margin-left uk-light">
             <a href="{link Home:default}">Home</a>
         </li>
+        {if $user->isLoggedIn()}
+            <li class="uk-inline-block uk-margin-left uk-margin-right uk-light">|</li>
+            <li class="uk-inline-block uk-margin-left uk-light">
+                <a href="{link Admin:default}">Admin</a>
+            </li>
+        {/if}
     </ul>
     <ul class="uk-list uk-align-right uk-inline-block uk-margin-small-top">
         {if $user->isLoggedIn()}
