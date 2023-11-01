@@ -1,0 +1,28 @@
+<div class="uk-container uk-margin-large-bottom">
+    <ul class="uk-list uk-inline-block uk-margin-small-top">
+        <li class="uk-inline-block uk-margin-left uk-light">
+            <a href="{link Home:default}">Home</a>
+        </li>
+    </ul>
+    <ul class="uk-list uk-align-right uk-inline-block uk-margin-small-top">
+        {if $user->isLoggedIn()}
+        <li>
+            <a href="#" class="uk-light uk-flex uk-flex-middle"><span uk-icon="user" class="uk-margin-small-right"></span>{$user->getIdentity()->username}</a>
+            <div data-uk-dropdown="animation: uk-animation-slide-bottom-small; duration: 200; pos: bottom-right">
+            <ul class="uk-nav uk-nav-dropdown">
+                <li><a href="#"><i class="fa fa-address-book-o uk-margin-small-right uk-light"></i>User profile</a></li>
+                <li><a href="{link logOut!}"><span uk-icon="sign-out"></span> Signout now</a></li>
+            </ul>
+            </div>
+        </li>
+        {else}
+            <li class="uk-inline-block uk-margin-remove uk-margin-left uk-light">
+                <a uk-toggle="target: #sign-in"><span uk-icon="sign-in"></span> Sign-in</a>
+            </li>
+            <li class="uk-inline-block uk-margin-left uk-margin-right uk-light">|</li>
+            <li  class="uk-inline-block uk-margin-remove uk-margin-left uk-light">
+                <a href="{link Register:default}">Register</a>
+            </li>
+        {/if}
+    </ul>
+</div>

@@ -1,0 +1,45 @@
+{block content}
+<div id="banner">
+	<h1 n:block=title>Admin</h1>
+</div>
+
+<h2>Let's edit users shall we?</h2>
+
+{snippet usersTable}
+	<table class="uk-table uk-table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>email</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{foreach $allUsers as $userItem}
+				<tr>
+					<td>{$userItem->id}</td>
+					<td>{$userItem->email}</td>
+					<td>
+						<a n:href="Admin:edit, id => $userItem->id"><span uk-icon="pencil"></span></a>
+						<a n:href="delete!, id => $userItem->id"><span uk-icon="trash" class="delete uk-text-danger uk-margin-small-left"></span></a>
+					</td>
+				</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	<ul class="uk-pagination" uk-margin>
+		{if $currentPage > 0}
+			<li><a href="?page={$currentPage-1}"><span uk-pagination-previous></span></a></li>
+		{/if}
+		{for $i = 0; $i < $pagesCount+1; $i++}
+			<li class="{if $i == $currentPage}uk-disabled{/if}">
+				<a href="?page={$i}">
+					<span>{$i+1}</span>
+				</a>
+			</li>
+		{/for}
+		{if $currentPage < $pagesCount}
+			<li><a href="?page={$currentPage+1}"><span uk-pagination-next></span></a></li>
+		{/if}
+	</ul>
+{/snippet}

@@ -1,0 +1,57 @@
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+latte:
+	strictTypes: yes
+
+
+session:
+	expiration: 14 days
+	autoStart: smart
+	debugger: true
+
+extensions:
+	nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+	nextras.dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
+
+nextras.dbal:
+    driver: mysqli
+    host: localhost
+    port: 3306
+    database: nette-test
+    username: root
+    password: test
+    connectionTz: Europe/Prague
+    #sqlProcessorFactory: @Custom\SqlProcessorFactory
+
+nextras.orm:
+	repositoryFinder: Nextras\Orm\Bridges\NetteDI\DIRepositoryFinder
+	model: App\Models\AppModel
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+database:
+	default:
+		dsn: 'mysql:host=127.0.0.1;dbname=nette-test'
+		user: root
+		password: 'test'
+		options:
+			lazy: yes
+
+security:
+	authentication:
+		# po jak dlouhé době nečinnosti bude uživatel odhlášen
+		expiration: 30 minutes        # (string) výchozí je nenastaveno
+
+		# kam ukládat informace o přihlášeném uživateli
+		storage: session              # (session|cookie) výchozí je session

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/js/nette/nette.ajax.js"></script>
+	<script src="/js/uikit/uikit.min.js"></script>
+	<script src="/js/uikit/uikit-icons.js"></script>
+
+	<link rel="stylesheet" href="/css/uikit.min.css" />
+	<link rel="stylesheet" href="/css/app.css" />
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset} Nette test</title>
+</head>
+
+<body>
+	{include '@header.latte'}
+
+	<div id="content" class="uk-container uk-margin-large-bottom">
+		{include content}
+
+	</div>
+	{include '@footer.latte'}
+
+
+	{snippet signWindowSnippet}
+		{include '@sign-in.latte'}
+	{/snippet}
+
+	{snippet messages}
+		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">
+			<script>
+				$(document).ready(function(){
+					UIkit.notification( {$flash->message} );
+				});
+			</script>
+		</div>
+	{/snippet}
+</body>
+</html>

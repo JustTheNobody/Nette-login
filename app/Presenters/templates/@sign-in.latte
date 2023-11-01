@@ -1,0 +1,38 @@
+<div id="sign-in" data-uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        {form signInForm, class => 'uk-form-horizontal ajax'}
+            <h2 class="uk-modal-title">Sign-in</h2>
+            {ifset $signWindowMessage}
+                <div class="uk-alert-danger" data-uk-alert>
+                    {$signWindowMessage}
+                </div>
+            {/ifset}
+            <div class="uk-margin">
+                {label email, class => 'uk-form-label' /}
+                <div class="uk-inline">
+                    <i class="uk-form-icon" data-uk-icon="icon: mail"></i>
+                    {input email, class => 'uk-input'}
+                </div>
+            </div>
+            <div class="uk-margin">
+                {label password, class => 'uk-form-label' /}
+                <div class="uk-inline">
+                    <i class="uk-form-icon" data-uk-icon="icon: unlock"></i>
+                    {input password, class => 'uk-input'}
+                </div>
+            </div>
+            <button type="button" class="uk-button uk-button-default uk-button-small uk-modal-close">close</button>
+            {input sign, class => 'uk-button uk-button-primary uk-button-small'}
+        {/form}
+    </div>
+</div>
+
+{ifset $signWindowMessage}
+    <script>
+    $( document ).ready( function ()
+    {
+    var modal = UIkit.modal( "#sign-in" );
+    modal.show();
+    });
+    </script>
+{/ifset}

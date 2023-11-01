@@ -1,0 +1,14 @@
+services:
+	- App\Router\RouterFactory::createRouter
+	- App\Models\MyAuthenticator
+	- App\Models\UsersRepository(App\Models\UsersMapper())
+	cache:
+		class: Nette\Caching\Cache
+
+	security.passwords: Nette\Security\Passwords(::PASSWORD_BCRYPT, [cost: 12])
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Factory
+			- *Facade

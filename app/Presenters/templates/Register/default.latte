@@ -1,0 +1,30 @@
+{block content}
+<div id="banner">
+	<h1 n:block=title>Register</h1>
+</div>
+
+<div class="uk-width-1-2">
+    <h2>Let's register a user</h2>
+    {form registerForm, class => 'uk-form-horizontal ajax'}
+        {ifset $registerWindowMessage}
+            <div class="uk-alert-danger" data-uk-alert>
+                {$signWindowMessage}
+            </div>
+        {/ifset}
+        <div class="uk-margin">
+            {label email, class => 'uk-form-label uk-text-right uk-margin-right' /}
+            <div class="uk-inline">
+                <i class="uk-form-icon" data-uk-icon="icon: mail"></i>
+                {input email, class => 'uk-input'}
+            </div>
+        </div>
+        <div class="uk-margin">
+            {label password, class => 'uk-form-label uk-text-right uk-margin-right' /}
+            <div class="uk-inline">
+                <i class="uk-form-icon" data-uk-icon="icon: unlock"></i>
+                {input password, class => 'uk-input'}
+            </div>
+        </div>
+        {input register, class => 'uk-button uk-button-primary uk-button-small uk-align-right'}
+    {/form}
+</div>
