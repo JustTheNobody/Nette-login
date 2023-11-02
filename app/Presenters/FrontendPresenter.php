@@ -19,7 +19,7 @@ class FrontendPresenter extends Presenter
     /** @var UsersRepository */
     protected UsersRepository $users;
 
-    public function injectFrontendDependencies( AppModel $orm )
+    public function injectFrontendDependencies( AppModel $orm ) : void
     {
         $this->orm = $orm;
         $this->users = $this->orm->getRepository( UsersRepository::class );

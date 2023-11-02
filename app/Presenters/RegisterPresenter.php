@@ -36,7 +36,6 @@ final class RegisterPresenter extends FrontendPresenter
             ->setDefaultValue( true );
 
         $form->addSubmit( 'register', 'register' );
-
         $form->onSuccess[] = array( $this, 'registerFormSucceeded' );
 
         return $form;

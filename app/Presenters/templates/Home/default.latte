@@ -3,17 +3,17 @@
 	<h1 n:block=title>Home page of the Homework</h1>
 </div>
 
-<h2>Systém pro správu uživatelů</h2>
+<h2 class="uk-text-bold">Systém pro správu uživatelů</h2>
 <div>
-	<p>zadání:</p>
+	<h4>Zadání:</h4>
 	<p>Navrhněte a zprovozněte ebovou aplikaci - databázový systém pro správu uživatellů, kde bude možné přidávat, editovat a mazat uživatele. Výpis uživatelů, stejně jako všechny další akce, bude zabezpečen přihlášením.</p>
 	<p>Uživatel bude mít pouze pole jméno, příjmení, e-mail a heslo.</p>
 	<p>Při návrhu použijte Nette framework a Nextras ORM (https://nextras.org/orm/docs/main/), které jsou dostupné pro PHP.</p>
 	<p>Pro založení projektu i přidání závislostí využijte composer, svůj kód odevzdejte přes Gitlab repozitář. Při implementaci se doporučuje využívat již existující knihovny.</p>
 </div>
 <div>
+	<h4>Time spend:</h4>
 	<p>
-		<h3>time spend</h3>
 		<ul class="uk-list">
 			<li>to make the ORM to work <span class="uk-text-warning">6h</span></li>
 			<li>sign <span class="uk-text-warning">30min</span></li>
@@ -24,6 +24,16 @@
 	</p>
 </div>
 <div>
-	<h4>Závěr</h4>
-	<p></p>
+	<h4>Závěr:</h4>
+	<p>Projekt jsem testoval na:
+		<ul>
+			<li>PHP 8.2.7</li>
+			<li>MariaDB 10.5</li>
+			<li>Laragon - Apache 2.4.47</li>
+			<li>Ve složce migration v kořenovém adresáři je soubor pro vytvoření potřebné tabulky.</li>
+		</ul>
+		<p>Jelikož vše se dá ňákým spůsobem vylepšit a vyldit, tak jsem se snažil držet pouze zadání které jsem měl.</p>
+		<p>Upustil jsem tedy od zjevných user friendly features, například při kliku na smazání položky nevyskočí varování o nevratné akci</p>
+		<p>Neodpustil jsem si implementovat paginátor, počet položek na stránce se nastavuje v AdminPresenteru a to proměnou $limit</p>
+	</p>
 </div>

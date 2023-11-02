@@ -6,8 +6,6 @@ namespace App\Presenters;
 
 use Nette;
 use Exception;
-use App\Models\User;
-use Nette\Security\Passwords;
 use Nette\Application\UI\Form;
 
 class AdminPresenter extends FrontendPresenter
@@ -31,7 +29,6 @@ class AdminPresenter extends FrontendPresenter
 
     public function actionDefault( $page = 0 )
     {
-
         $offset     = $page * $this->limit;
 
         $allUsers        = $this->users->findAll();
@@ -42,12 +39,12 @@ class AdminPresenter extends FrontendPresenter
         $this->template->allUsers    = $allUsers->limitBy($this->limit, $offset);
     }
 
-    public function actionEdit( $id )
+    public function actionEdit( $id ) : void
     {
         $this->temp = $this->users->getById( $id );
     }
 
-    public function handleDelete( $id )
+    public function handleDelete( $id ) : void
     {
         $user = $this->users->getById($id);
 
