@@ -13,10 +13,13 @@
     <ul class="uk-list uk-align-right uk-inline-block uk-margin-small-top">
         {if $user->isLoggedIn()}
         <li>
-            <a href="#" class="uk-light uk-flex uk-flex-middle"><span uk-icon="user" class="uk-margin-small-right"></span>{$user->getIdentity()->username}</a>
+            <a class="uk-light uk-flex uk-flex-middle">
+                <span uk-icon="user" class="uk-margin-small-right"></span>
+                {$user->getIdentity()->username}
+            </a>
             <div data-uk-dropdown="animation: uk-animation-slide-bottom-small; duration: 200; pos: bottom-right">
             <ul class="uk-nav uk-nav-dropdown">
-                <li><a href="#"><i class="fa fa-address-book-o uk-margin-small-right uk-light"></i>User profile</a></li>
+                <li><a n:href="Admin:edit, id => $user->getIdentity()->id"><i class="fa fa-address-book-o uk-margin-small-right uk-light"></i>User profile</a></li>
                 <li><a href="{link logOut!}"><span uk-icon="sign-out"></span> Signout now</a></li>
             </ul>
             </div>
