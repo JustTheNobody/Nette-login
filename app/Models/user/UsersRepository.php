@@ -6,8 +6,7 @@ use Nextras\Orm\Repository\Repository;
 
 
 /**
- * @method Tag|NULL getById( $id )
- * @method Tag|NULL getByName( $username )
+ *
  */
 
 class UsersRepository extends Repository
